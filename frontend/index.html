@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Nulloids AI — Beyond Search. Into Understanding." />
+    <meta name="theme-color" content="#f8fafc" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <title>Nulloids AI — Beyond Search. Into Understanding.</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Document workspace navigation">
+        <div class="sidebar-top">
+          <a class="brand" href="/" data-testid="brand-home-link" aria-label="Nulloids AI home">
+            <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="brand-copy">
+              <strong data-testid="brand-name">Nulloids AI</strong>
+              <small data-testid="brand-tagline">Beyond Search. Into Understanding.</small>
+            </span>
+          </a>
+
+          <button class="button button-primary new-chat-button" type="button" data-testid="new-chat-button">
+            <span class="button-icon" aria-hidden="true">＋</span>
+            <span>New Chat</span>
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Conversation and document sections">
+            <section class="sidebar-section" aria-labelledby="history-title">
+              <div class="section-heading-row">
+                <h2 id="history-title" data-testid="chat-history-heading">Chat History</h2>
+                <span class="section-count" data-testid="chat-history-count">0</span>
+              </div>
+              <div class="history-list" data-testid="chat-history-list">
+                <p class="sidebar-empty" data-testid="chat-history-empty">Your questions will appear here.</p>
+              </div>
+            </section>
+
+            <section class="sidebar-section" aria-labelledby="documents-title">
+              <div class="section-heading-row">
+                <h2 id="documents-title" data-testid="uploaded-documents-heading">Uploaded Documents</h2>
+              </div>
+              <div class="document-list" data-testid="uploaded-documents-list">
+                <p class="sidebar-empty" data-testid="uploaded-documents-empty">No document selected.</p>
+              </div>
+            </section>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="connection-note" data-testid="connection-note">
+            <span class="connection-dot" aria-hidden="true"></span>
+            <span>Workspace ready</span>
+          </div>
+          <p class="sidebar-meta" data-testid="sidebar-scope-note">Your documents stay connected to this browser session.</p>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="icon-button mobile-menu-button" type="button" data-testid="mobile-menu-button" aria-label="Open navigation" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+          </button>
+          <div class="topbar-context">
+            <span class="eyebrow" data-testid="workspace-eyebrow">PDF workspace</span>
+            <span class="topbar-divider" aria-hidden="true"></span>
+            <span class="topbar-status" data-testid="topbar-status">Ready for a document</span>
+          </div>
+          <button class="text-button clear-chat-button" type="button" data-testid="clear-chat-button" disabled>Clear Chat</button>
+        </header>
+
+        <section class="content-stage" data-testid="content-stage">
+          <section class="welcome-view" data-testid="welcome-view">
+            <div class="welcome-intro">
+              <span class="welcome-kicker" data-testid="welcome-kicker">NULLOIDS AI / DOCUMENT INTELLIGENCE</span>
+              <h1 data-testid="welcome-heading">Your PDFs. Your questions. Intelligent answers.</h1>
+              <p data-testid="welcome-supporting-text">Explore your documents through intelligent AI conversations.</p>
+            </div>
+
+            <div class="upload-card" data-testid="upload-card">
+              <div class="upload-card-header">
+                <div>
+                  <span class="card-label" data-testid="upload-section-label">Upload a document to get started.</span>
+                  <p class="card-helper" data-testid="upload-helper-text">Bring a PDF into your workspace and ask grounded questions.</p>
+                </div>
+                <span class="file-type-pill" data-testid="file-type-pill">PDF only</span>
+              </div>
+              <div class="upload-zone" data-testid="upload-dropzone" role="button" tabindex="0" aria-label="Choose a PDF document">
+                <input id="pdf-file-input" class="visually-hidden" type="file" accept="application/pdf,.pdf" data-testid="pdf-file-input" />
+                <div class="upload-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none"><path d="M19 3H8.8A2.8 2.8 0 0 0 6 5.8v20.4A2.8 2.8 0 0 0 8.8 29h14.4a2.8 2.8 0 0 0 2.8-2.8V10.2L19 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M19 3v7.2h7.2M11 19.1h10M11 23.2h6M11 14.9h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </div>
+                <strong data-testid="upload-zone-title">Drop your PDF here</strong>
+                <span data-testid="upload-zone-hint">or <button class="inline-button" type="button" data-testid="browse-files-button">browse files</button></span>
+                <span class="upload-limit" data-testid="upload-limit">PDF documents up to 25 MB</span>
+              </div>
+              <div class="file-preview hidden" data-testid="file-preview">
+                <span class="file-preview-icon" aria-hidden="true">PDF</span>
+                <div class="file-preview-copy">
+                  <strong data-testid="selected-file-name">No file selected</strong>
+                  <span data-testid="selected-file-size">—</span>
+                </div>
+                <button class="icon-button remove-file-button" type="button" data-testid="remove-file-button" aria-label="Remove selected document">×</button>
+              </div>
+              <div class="status-message" data-testid="upload-status-message" role="status" aria-live="polite"></div>
+              <div class="upload-actions">
+                <button class="button button-primary start-chat-button" type="button" data-testid="start-chatting-button" disabled>
+                  <span>Start Chatting</span><span aria-hidden="true">↗</span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="chat-view hidden" data-testid="chat-view" aria-label="Document conversation">
+            <div class="chat-header">
+              <div>
+                <span class="eyebrow" data-testid="chat-eyebrow">CONTEXT-AWARE CONVERSATION</span>
+                <h2 data-testid="chat-document-title">Ask about your document</h2>
+              </div>
+              <div class="chat-document-chip" data-testid="chat-document-chip"><span class="mini-file-icon" aria-hidden="true">PDF</span><span data-testid="chat-document-name">No document</span></div>
+            </div>
+            <div class="message-list" data-testid="message-list" aria-live="polite">
+              <div class="empty-chat-state" data-testid="empty-chat-state">
+                <div class="empty-chat-mark" aria-hidden="true">✦</div>
+                <p data-testid="empty-state-message">Upload a PDF to begin your conversation.</p>
+              </div>
+            </div>
+            <div class="chat-composer-wrap">
+              <div class="composer-status" data-testid="composer-status" role="status" aria-live="polite"></div>
+              <form class="chat-composer" data-testid="chat-form">
+                <textarea id="chat-input" data-testid="chat-input" placeholder="Type your question here..." rows="1" disabled aria-label="Type your question here..."></textarea>
+                <button class="send-button" type="submit" data-testid="send-button" aria-label="Send question" disabled>
+                  <span aria-hidden="true">↑</span>
+                </button>
+              </form>
+              <p class="composer-hint" data-testid="composer-hint">Press Enter to send · Shift + Enter for a new line</p>
+            </div>
+          </section>
+        </section>
+        <footer class="app-footer" data-testid="app-footer">Developed by Team Nulloids</footer>
+      </main>
+    </div>
+    <div class="toast-region" data-testid="toast-region" role="status" aria-live="polite"></div>
+    <script src="/script.js"></script>
+  </body>
+</html>
